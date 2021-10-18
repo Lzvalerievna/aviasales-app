@@ -1,0 +1,46 @@
+@import '../../variables.scss';
+
+.App {
+  display: block;
+  margin: 0 auto;
+  width: 770px;
+  background: #f3f7fa;
+}
+.app-content {
+  display: flex;
+}
+
+.logo{
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.progressBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  width: 100%;
+}
+@media (max-width: 540px) {
+    .App {
+      width: 320px;
+      margin: 0 auto;
+    } 
+
+    .app-content {
+      display: block;
+      margin: 0 auto;
+    }
+    .progressBar {
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+
+    .logo{
+      padding-bottom: -20px;
+  }
+}
+
+

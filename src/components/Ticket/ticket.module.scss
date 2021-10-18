@@ -1,0 +1,114 @@
+@import '../../variables';
+
+.ticket {
+    color: $background-button;
+    border: solid 2px $border-ticket;
+    width: 502px;
+    height: 182px;
+    margin-top: 20px;
+    border-radius: 5px ;
+    background-color:$background;
+    box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
+}
+.ticket-title {
+    display: flex;
+    justify-content: space-between;
+}
+.ticket-img {
+    height: 40px;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+.ticket-price {
+    height: 36px;
+    font-family: 'Open+Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    font-style: normal;
+    margin-left: 28px;
+    margin-top: 20px;
+}
+.ticket-res {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 462px;
+    margin-top: -10px;
+    margin-bottom: 10px;  
+    margin-left: 30px;
+}
+.ticket-direction,
+.ticket-time,
+.ticket-transfer {
+    color: $text-ticket;
+    font-family: 'Open+Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-style: normal;
+    width: 141px;
+    height: 38.5px;
+}
+.ticket-time p,
+.ticket-transfer p,
+.ticket-direction p {
+    color: $text;
+    margin-top: 0px;
+    font-family: "Open+Sans", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.ticket-transfer {
+    width: 170px;
+    margin-left: 30px;
+}
+
+.ticket-time {
+    margin-left: 30px;
+}
+
+@media (max-width: 540px) {
+    .ticket {
+        width: 320px;
+        height: 140px;
+        margin-top:10px;
+    }
+
+    .ticket-res {
+        width: 320px;
+        margin-top: -10px;
+        margin-bottom: 0px;  
+        margin-left: 10px;
+    }
+
+    .ticket-direction,
+    .ticket-time,
+    .ticket-transfer {
+        font-size: 11px;
+        margin-left: 0px;
+        letter-spacing: 0.3px;
+    }
+
+    .ticket-time p,
+    .ticket-transfer p,
+    .ticket-direction p {
+       margin-top: -5px;
+       font-size: 11px;
+       line-height: 21px;
+    }
+    .ticket-img {
+        height: 30px;
+        margin-right: 25px;
+        margin-top: 15px;
+    }
+    .ticket-price {
+        height: 25px;
+        font-size: 20px;
+        font-style: normal;
+        margin-left: 10px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+}
