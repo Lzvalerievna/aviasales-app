@@ -41,7 +41,6 @@ const reducer = (state = initionState, action) => {
           let newStateTickets = Object.assign({}, state); 
           newStateTickets.aviasalesTickets = newStateTickets.aviasalesTickets.concat(actionTickets.tickets).sort((objA,objB) => { return objA.price - objB.price})
           newStateTickets.window = true
-          console.log(newStateTickets.aviasalesTickets)
           newStateTickets.aaa = [...newStateTickets.aviasalesTickets]
           newStateTickets.loading = actionTickets.stop 
         
