@@ -17,7 +17,7 @@ function App({getTickets, tickets}) {
   
     return(
         <div className = {classes.App}>
-          <img className ={classes.logo} src="/public/Logo.svg" alt="Logo"/>
+          <img className ={classes.logo} src="../../Logo.svg" alt="Logo"/>
           <div className={classes.progressBar}>
           {!tickets.loading ? <Progress  type="dashboard" percent={Math.floor((100 * tickets.aviasalesTickets.length) / 7000)} width= {100} /> : null}  
           </div>
