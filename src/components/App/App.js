@@ -29,9 +29,20 @@ function App({getTickets, tickets}) {
     )
 }
 
-const mapStateToProps = (aviasalesTickets) => {
+function setAviasalesTickets(state) {
+  let aaa;
+    if(state.btnFilter === 'САМЫЙ ДЕШЕВЫЙ') {
+      aaa = state.aviasalesTickets.sort((objA,objB) => { return objA.price - objB.price})
+    }else {
+      aaa = state.aviasalesTickets.sort((objA,objB) => objA.segments[0].duration - objB.segments[0].duration)
+    }
+    return aaa;
+  }
+
+const mapStateToProps = (state) => {
     return {
-        tickets: aviasalesTickets
+        tickets: state,
+        aviasalesTickets: setAviasalesTickets(state)
     }
   }
   const mapDispathToProps = (dispatch) => {
@@ -42,4 +53,3 @@ const mapStateToProps = (aviasalesTickets) => {
  
  
  export default connect(mapStateToProps,mapDispathToProps)(App);
- 

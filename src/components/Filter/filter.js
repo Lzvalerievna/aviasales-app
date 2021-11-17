@@ -3,31 +3,35 @@ import {connect} from 'react-redux';
 import classes from './filter.module.scss';
 import * as actions from '../../redux/actions';
 
+
 const Filter = ({counter, onCheckBox}) => {
 
+   const obj = {
+      0:{text:'Все',idxcheck: 4},
+      1:{text:'Без пересадок',idxcheck: 0},
+      2:{text:'1 пересадка',idxcheck: 1},
+      3:{text:'2 пересадки',idxcheck: 2},
+      4:{text:'3 пересадки',idxcheck: 3}
+   }
+  
+   const filterRender = counter.checkbox.map((item,index) => {
+     
+      return (
+         <div className= {classes.checkbox} key = {index}>
+            <label>
+               <input checked = {counter.checkbox[obj[index].idxcheck]} onChange = {() => onCheckBox(obj[index].idxcheck, counter.transfer)} 
+               className={classes["checkbox-input"]} type="checkbox" id = {obj[index].idxcheck}/>
+               <span className = {classes["checkbox-fake"]}></span>
+               <span className = {classes["checkbox-text"]}>{obj[index].text}</span>
+            </label>
+         </div>
+      );
+   })
+ 
     return (
         <div className = {classes.Filter}>
             <div className = {classes["filter-name"]}>КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-            <div className= {classes.checkbox}>
-                <input checked = {counter.checkbox[4]} onChange = {() => onCheckBox(4)} className={classes["checkbox-input"]} type="checkbox" id = "1"/>
-                <label className = {classes["checkbox-label"]} htmlFor = "1">Все</label>
-             </div>
-             <div className= {classes.checkbox}>
-                <input checked = {counter.checkbox[0]} onChange = {() =>  onCheckBox(0)} className={classes["checkbox-input"]} type="checkbox" id = "2"/>
-                <label className = {classes["checkbox-label"]} htmlFor = "2">Без пересадок</label>
-             </div>
-             <div className= {classes.checkbox}>
-                <input checked = {counter.checkbox[1]} onChange = {() =>  onCheckBox(1)} className={classes["checkbox-input"]} type="checkbox" id = "3"/>
-                <label className = {classes["checkbox-label"]} htmlFor = "3">1 пересадка</label>
-             </div>
-             <div className= {classes.checkbox}>
-                <input checked = {counter.checkbox[2]} onChange = {() => onCheckBox(2)} className={classes["checkbox-input"]} type="checkbox" id = "4"/>
-                <label className = {classes["checkbox-label"]} htmlFor = "4">2 пересадки</label>
-             </div>
-             <div className= {classes.checkbox}>
-                <input checked = {counter.checkbox[3]} onChange = {() => onCheckBox(3)} className={classes["checkbox-input"]} type="checkbox" id = "5"/>
-                <label className = {classes["checkbox-label"]} htmlFor = "5">3 пересадоки</label>
-             </div>
+              {filterRender} 
         </div>
    )
 }
@@ -40,7 +44,7 @@ const mapStateToProps = (state) => {
 
  const mapDispathToProps = (dispatch) => {
    return {
-      onCheckBox: (idx) => dispatch(actions.handleChage(idx))
+      onCheckBox: (idx, transfer) => dispatch(actions.handleChage(idx, transfer))
    }
  }
 

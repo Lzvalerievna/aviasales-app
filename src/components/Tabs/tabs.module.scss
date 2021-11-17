@@ -1,75 +1,59 @@
 @import '../../variables';
 
 .Tabs {
-    width: 502px;
-    height: 50px;
-    display: flex;
-    margin-left: 260px;
-    margin-bottom: 20px;
+    margin-left: 220px;
+    list-style: none;
+    right: 0;
+    left: 0;
 }
 
-.checkbox {
+.Tabs li {
+    display: inline-flex;
+    cursor: default;
     margin-right: 1px;
 }
 
-.checkbox-input[type="checkbox"] {
-    display: none;
+.Tabs li button {
+    display: inline-block;
+    display: block;
+    width: 249px;
+    height: 50px;
+    background-color: $background;
+   
+    text-decoration: none;
+    border: 1px solid $border-ticket;
+    border-radius: 5px;
 }
 
-.checkbox-label1,
-.checkbox-label2{
-    position: relative;
-    display: inline-block;
-    background:  $background;
-    width: 251px;
-    height: 50px;
-    text-align: center;
-    padding-top: 18px;
-    color: $text;
-    font-family: 'Open+Sans', sans-serif;
-    font-style: normal;
-    font-size: 13px;
-    font-weight: 500;
-    user-select: none;
-    overflow: hidden;
+.Tabs li button:not(.selected) {
     cursor: pointer;
 }
 
-.checkbox-label1 {
-    border-radius: 5px 0 0 5px;
-}
-.checkbox-label2 {
-    border-radius: 0 5px 5px 0 ;
+.Tabs li:hover button {
+    border-color: rgba(175, 47, 47, 0.1);
 }
 
-.checkbox-input:checked ~ .checkbox-label1,
-.checkbox-input:checked ~ .checkbox-label2 {
+.Tabs li button.selected {
     background-color: $background-button;
-    height: 50px;
-    color: white;
+    color: $background;
 }
-
 @media (max-width: 540px) {
-    .checkbox-label1,
-    .checkbox-label2{
-       width: 150px;
-       height: 35px; 
-       font-size: 12px;
-       padding-top: 10px;
-    }
-    .checkbox-input:checked ~ .checkbox-label1,
-    .checkbox-input:checked ~ .checkbox-label2 {
-       height: 35px;
-    }
-
     .Tabs {
-       width: 320px;
-       height: 50px;
-       margin: 10px auto 0px;
-       margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        margin-left: -31px;
+        width: 500px;
     }
- 
+    .Tabs li button {
+        display: inline-block;
+        width: 150px;
+        height: 35px; 
+        font-size: 12px;
+    }
 }
+
+
+
 
 
 

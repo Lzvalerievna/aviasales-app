@@ -67,7 +67,8 @@
         "react-hooks/exhaustive-deps": "off",
         "prefer-arrow-callback": "off",
         "array-callback-return": "off",
-        "no-nested-ternary": "off"
+        "no-nested-ternary": "off",
+        "no-param-reassign": "off"
     },
     "settings": {
         "react": {
