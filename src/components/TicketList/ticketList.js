@@ -10,10 +10,7 @@ function TicketList({tickets, onClickBTN}) {
   const [aaa, setAaa] = useState([])
 
   useEffect(() => { 
-    if(tickets.checkbox) {
       setAaa(() => tickets.aviasalesTickets.filter((ticket) => tickets.transfers.includes(ticket.segments[0].stops.length)))
-    }
-    return aaa;
   }, [tickets.aviasalesTickets, tickets.btnFilter,tickets.checkbox,tickets.transfers, tickets.ticketsNum])
 
   const ticketRender = aaa.map((item,index) => {

@@ -10,13 +10,13 @@
 .Tabs li {
     display: inline-flex;
     cursor: default;
-    margin-right: 1px;
+    margin-right: 0.5px;
 }
 
 .Tabs li button {
     display: inline-block;
     display: block;
-    width: 249px;
+    width: 250px;
     height: 50px;
     background-color: $background;
    
