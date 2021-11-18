@@ -7,13 +7,13 @@ import Tabs from '../Tabs/tabs';
 
 function TicketList({tickets, onClickBTN}) {
   
-  const [aaa, setAaa] = useState([])
+  const [newList, setNewList] = useState([])
 
   useEffect(() => { 
-      setAaa(() => tickets.aviasalesTickets.filter((ticket) => tickets.transfers.includes(ticket.segments[0].stops.length)))
+    setNewList(() => tickets.aviasalesTickets.filter((ticket) => tickets.transfers.includes(ticket.segments[0].stops.length)))
   }, [tickets.aviasalesTickets, tickets.btnFilter,tickets.checkbox,tickets.transfers, tickets.ticketsNum])
 
-  const ticketRender = aaa.map((item,index) => {
+  const ticketRender = newList.map((item,index) => {
     const {id, ...itemProps} = item;
       return (
         <Ticket
@@ -40,9 +40,21 @@ function TicketList({tickets, onClickBTN}) {
   )  
 }
 
+function setAviasalesTickets(state) {
+  let aaa;
+    if(state.btnFilter === 'САМЫЙ ДЕШЕВЫЙ') {
+      aaa = state.aviasalesTickets.sort((objA,objB) => { return objA.price - objB.price})
+    }else {
+      aaa = state.aviasalesTickets.sort((objA,objB) => objA.segments[0].duration - objB.segments[0].duration)
+    }
+    return aaa;
+  }
+
+
 const mapStateToProps = (state) => {
   return {
-      tickets: state
+      tickets: state,
+      aviasalesTickets: setAviasalesTickets(state)
   }
 }
 

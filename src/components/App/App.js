@@ -29,20 +29,9 @@ function App({getTickets, tickets}) {
     )
 }
 
-function setAviasalesTickets(state) {
-  let aaa;
-    if(state.btnFilter === 'САМЫЙ ДЕШЕВЫЙ') {
-      aaa = state.aviasalesTickets.sort((objA,objB) => { return objA.price - objB.price})
-    }else {
-      aaa = state.aviasalesTickets.sort((objA,objB) => objA.segments[0].duration - objB.segments[0].duration)
-    }
-    return aaa;
-  }
-
 const mapStateToProps = (state) => {
     return {
-        tickets: state,
-        aviasalesTickets: setAviasalesTickets(state)
+        tickets: state
     }
   }
   const mapDispathToProps = (dispatch) => {
