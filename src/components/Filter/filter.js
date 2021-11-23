@@ -18,7 +18,7 @@ const Filter = ({counter, onCheckBox}) => {
      
       return (
          <div className= {classes.checkbox} key = {index}>
-            <label>
+            <label className= {classes["checkbox-label"]} >
                <input checked = {counter.checkbox[obj[index].idxcheck]} onChange = {() => onCheckBox(obj[index].idxcheck, counter.transfer)} 
                className={classes["checkbox-input"]} type="checkbox" id = {obj[index].idxcheck}/>
                <span className = {classes["checkbox-fake"]}></span>

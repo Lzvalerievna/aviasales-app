@@ -30,7 +30,6 @@ function Tabs({ticket, getTicketsFiltre}) {
     )
 }
 
-
 const mapStateToProps = (state) => {
     return {
         ticket: state

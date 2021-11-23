@@ -34,7 +34,7 @@ function TicketList({tickets, onClickBTN}) {
           {tickets.aviasalesTickets.length !== 0 &&
             <button type = "button" onClick={() => {onClickBTN(5)}}className = {classes["app-button"]}>ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ!</button> 
           }
-        </ul> : tickets.window ? <p className={classes['notTicketList']}>Рейсов, подходящих под заданные фильтры, не найдено</p> : null 
+        </ul> : <p className={classes['notTicketList']}>Рейсов, подходящих под заданные фильтры, не найдено</p> 
       }
     </div>
   )  
@@ -44,8 +44,13 @@ function setAviasalesTickets(state) {
   let aaa;
     if(state.btnFilter === 'САМЫЙ ДЕШЕВЫЙ') {
       aaa = state.aviasalesTickets.sort((objA,objB) => { return objA.price - objB.price})
+      
     }else {
-      aaa = state.aviasalesTickets.sort((objA,objB) => objA.segments[0].duration - objB.segments[0].duration)
+      aaa = state.aviasalesTickets.sort((objA,objB) => {
+        const durationObjA = objA.segments[0].duration + objA.segments[1].duration;
+        const durationObjB = objB.segments[0].duration + objB.segments[1].duration;
+        return durationObjA - durationObjB;
+      })
     }
     return aaa;
   }

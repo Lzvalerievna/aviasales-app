@@ -1,6 +1,6 @@
 const initionState = {checkbox:[true, true, true, true, true], transfers: [0, 1, 2, 3],
   aviasalesTickets: [], btnFilter: 'САМЫЙ ДЕШЕВЫЙ',
-  loading: false, ticketsNum: 5, window: false}
+  loading: false, ticketsNum: 5}
 
 
 const reducer = (state = initionState, action) => {
@@ -40,7 +40,6 @@ const reducer = (state = initionState, action) => {
          const actionTickets = action.obj
          let newStateTickets = Object.assign({}, state); 
          newStateTickets.aviasalesTickets = newStateTickets.aviasalesTickets.concat(actionTickets.tickets).sort((objA,objB) => { return objA.price - objB.price})
-         newStateTickets.window = true
          newStateTickets.loading = actionTickets.stop 
        
        return newStateTickets;
